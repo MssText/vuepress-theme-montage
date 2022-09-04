@@ -1,0 +1,64 @@
+{
+  "name": "vuepress-theme-montage",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "lint": "pnpm lint:prettier --write && pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
+    "lint:check": "pnpm lint:prettier && pnpm lint:eslint && pnpm lint:stylelint",
+    "lint:eslint": "eslint . --ext .js,.ts,.vue",
+    "lint:md": "markdownlint **/*.md",
+    "lint:prettier": "prettier --check .",
+    "lint:stylelint": "stylelint packages/*/src/**/*.scss"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-vue": "9.4.0",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "^2.7.1",
+    "stylelint": "14.11.0",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-config-standard": "28.0.0",
+    "stylelint-config-standard-scss": "5.0.0",
+    "stylelint-order": "5.0.0",
+    "typescript": "4.7.4",
+    "vuepress": "^2.0.0-beta.51"
+  },
+  "lint-staged": {
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,json,yml}": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "dependencies": {
+    "@vuepress/client": "^2.0.0-beta.50",
+    "postcss": "^8.3.3",
+    "vue": "^3.2.37"
+  }
+}
