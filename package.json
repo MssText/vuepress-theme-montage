@@ -6,21 +6,21 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "lint": "pnpm lint:prettier --write && pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
-    "lint:check": "pnpm lint:prettier && pnpm lint:eslint && pnpm lint:stylelint",
-    "lint:eslint": "eslint . --ext .js,.ts,.vue",
-    "lint:md": "markdownlint **/*.md",
-    "lint:prettier": "prettier --check .",
-    "lint:stylelint": "stylelint packages/*/src/**/*.scss"
+    "lint": "eslint --ext .cjs,.js,.ts,.vue .",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@vue/eslint-config-typescript": "^11.0.1",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-vuepress": "^4.0.3",
+    "eslint-config-vuepress-typescript": "^4.0.3",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-vue": "9.4.0",
-    "husky": "8.0.1",
+    "husky": "^8.0.0",
     "lint-staged": "13.0.3",
     "prettier": "^2.7.1",
     "stylelint": "14.11.0",
@@ -32,24 +32,8 @@
     "vuepress": "^2.0.0-beta.51"
   },
   "lint-staged": {
-    "*.vue": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{js,ts}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{md,json,yml}": [
-      "prettier --write"
-    ],
-    "*.scss": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "package.json": [
-      "sort-package-json"
-    ]
+    "*.{cjs,js,ts,vue}": "eslint --fix",
+    "*.{json,yml,css,scss}": "prettier --write"
   },
   "config": {
     "commitizen": {
@@ -57,7 +41,11 @@
     }
   },
   "dependencies": {
+    "@typescript-eslint/parser": "^5.0.0",
     "@vuepress/client": "^2.0.0-beta.50",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
     "postcss": "^8.3.3",
     "vue": "^3.2.37"
   }
