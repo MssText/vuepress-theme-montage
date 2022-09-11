@@ -4,8 +4,6 @@ module.exports = {
   env: {
     node: true,
     browser: true,
-    commonjs: true,
-    amd: true,
   },
   parserOptions: {
     project: 'tsconfig.json',
@@ -18,12 +16,6 @@ module.exports = {
       parserOptions: {
         project: ['tsconfig.json'],
       },
-      env: {
-        node: true,
-        browser: true,
-        commonjs: true,
-        amd: true,
-      },
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
@@ -32,12 +24,6 @@ module.exports = {
     },
     {
       files: ['**/client/config.ts'],
-      env: {
-        node: true,
-        browser: true,
-        commonjs: true,
-        amd: true,
-      },
       rules: {
         'vue/match-component-file-name': 'off',
       },
