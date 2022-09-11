@@ -5,10 +5,6 @@ module.exports = {
     node: true,
     browser: true,
   },
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
   overrides: [
     {
       files: ['*.ts', '*.vue', '*.cts'],
